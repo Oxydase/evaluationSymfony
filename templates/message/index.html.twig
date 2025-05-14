@@ -12,6 +12,7 @@
                 <th>Titre</th>
                 <th>Contenu</th>
                 <th>DateHeure</th>
+                <th>Reçu par</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{ message.titre }}</td>
                 <td>{{ message.contenu }}</td>
                 <td>{{ message.dateHeure ? message.dateHeure|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ message.recoit ? message.recoit.email : 'Non spécifié' }}</td>
                 <td>
                     <a href="{{ path('app_message_show', {'id': message.id}) }}">show</a>
                     <a href="{{ path('app_message_edit', {'id': message.id}) }}">edit</a>
@@ -29,7 +31,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
