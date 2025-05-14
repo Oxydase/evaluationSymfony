@@ -25,6 +25,7 @@ final class RessourceController extends AbstractController
     #[Route('/new', name: 'app_ressource_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $ressource = new Ressource();
         $form = $this->createForm(RessourceForm::class, $ressource);
         $form->handleRequest($request);

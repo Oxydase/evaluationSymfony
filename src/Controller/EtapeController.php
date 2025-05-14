@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 #[Route('/etape')]
 final class EtapeController extends AbstractController
@@ -25,6 +27,7 @@ final class EtapeController extends AbstractController
     #[Route('/new', name: 'app_etape_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $etape = new Etape();
         $form = $this->createForm(EtapeForm::class, $etape);
         $form->handleRequest($request);

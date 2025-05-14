@@ -25,6 +25,7 @@ final class ParcoursController extends AbstractController
     #[Route('/new', name: 'app_parcours_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $parcour = new Parcours();
         $form = $this->createForm(ParcoursForm::class, $parcour);
         $form->handleRequest($request);
