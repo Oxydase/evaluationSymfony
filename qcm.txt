@@ -1,0 +1,28 @@
+Cocher les cases dont vous avez réalisé la tâche
+Entités crées : (ordre conseillé)
+ X User
+ X Ressource
+ X Message
+ X Parcours
+ X Etape
+ X Rendu
+Sécurité
+ X Authentification
+ X Enregistrement
+ X Seul un conseiller peut créer un parcours, une étape, une ressource
+ X Sieul un conseiller peut se déclarer accompagnant d’un candidat
+CRUD :
+ X Ressource
+ X Message
+  Parcours
+ X Etape
+ Rendu
+Dépôt d’un message :
+ X L’émetteur d’un message est le user connecté est le user connecté
+Tableau de bord d’un parcours
+ Un parcours doit présenter ses étapes
+ Une étape doit présenter ses ressources associées avec un lien pour les télécharger
+ Une étape doit présenter la dernière version du rendu du user connecté associé à cette étape
+ Un mini formulaire doit permettre le dépôt d’un rendu
+ Si un message est associé à un rendu, un lien vers ce message est proposé
+ Le parcours affiché est un parcours associé au user connecté
